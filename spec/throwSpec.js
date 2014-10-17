@@ -1,22 +1,24 @@
-describe ('Throws', function() {
+describe ('Throw', function() {
 
-	describe('can have a score of', function() {
-
-		it('0', function() {
+	beforeEach(function() {
 			throw1 = new Throw;
+	});
+
+	describe('score ', function() {
+
+		it('can be 0', function() {
 			expect(throw1.score(0)).toEqual(0);
 		});
 
-		it('10', function() {
-			throw1 = new Throw;
+		it('can be 10', function() {
 			expect(throw1.score(10)).toEqual(10);
 		});
 
-	});
+		it('can not be 11', function() {
+			expect(throw1.score(11)).toBe(undefined);
+		});
+	
 
-	it('can not have a score of 11', function() {
-		throw1 = new Throw;
-		expect(throw1.score(11)).toBe(undefined);
 	});
 
 });
