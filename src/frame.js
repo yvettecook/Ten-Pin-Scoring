@@ -13,3 +13,9 @@ Frame.prototype.calculateTotalScore = function() {
 };
 
 
+//private testing method for speed!)
+Frame.prototype.setTotalScore = function(number) {
+	this.totalScore = number;
+};
+
+

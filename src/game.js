@@ -11,4 +11,23 @@ Game = function() {
 		frame9 = new Frame,
 		frame10 = new Frame
 		];
+	this.frameScores = [];
+	this.gameScore = null;
 };
+
+Game.prototype.calculateGameScore = function() {
+	for (i = 0; i < this.frames.length; i++) {
+		j = this.frames[i].totalScore;
+		if (j !== null ) { 
+			this.frameScores.push(j) 
+		} else { 
+			this.frameScores.push(0);
+		};
+	};
+	this.gameScore = this.frameScores.reduce(function(a,b) {
+		return a + b;
+	});
+};
+
+
+
