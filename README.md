@@ -9,7 +9,7 @@ A bowling game consists of 10 frames in which the player tries to knock down the
 
 Frames:
 
-- In every frame the player can throw 1 or two times. The number depends on whether a strike was thrown on the first throw.
+- In every frame the player can throw 1 or 2 times. The number depends on whether a strike was thrown on the first throw.
 - The score of a frame is the number of knocked down pins, plus bonuses for strikes and spares.
 - After every frame the pins are reset
 
@@ -29,7 +29,7 @@ Spares:
 - If the player rolls a strike or spare in the 10th frame he can roll the additional balls for the bonus. But he can never have more than 3 rolls in the 10th frame.
 - The additional rolls only count for the bonus, not for the regular frame count.
 - Example 1: 10, 10, 10 in the 10th frame gives 30 points (10 points for the regular strike, and 20 points for the bonus
-- Exampl 2: 1, 9, 10 in the 10th frame gives 20 points (10 points for the regular spare and 10 points for the bonus)
+- Example 2: 1, 9, 10 in the 10th frame gives 20 points (10 points for the regular spare and 10 points for the bonus)
 
 Sepcial games:
 
