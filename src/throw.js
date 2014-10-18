@@ -1,6 +1,8 @@
-Throw = function() {};
+Throw = function() {
+	this.score
+};
 
 Throw.prototype.score = function(pinsDown) {
-	if (pinsDown <= 10) return pinsDown;
+	if (pinsDown <= 10) this.score = pinsDown
 };
 
