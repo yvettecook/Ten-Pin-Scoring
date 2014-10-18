@@ -1,13 +1,13 @@
 describe('Game', function() {
 
-	it('contains frames', function() {
+	it('contains 10 frames', function() {
 		game = new Game;
-		game.frame1 = new Frame;
-		expect(game.frame1).toEqual(jasmine.any(Frame));
+		expect(game.frames.length).toBe(10)
 	});
 
-	// it('contains a collection of frames', function() {
+	it('can', function() {
+		
+	});
 
-	// })
 
 });
