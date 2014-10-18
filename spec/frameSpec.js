@@ -15,12 +15,14 @@ describe('Frame', function() {
 	it('throw score can be calculated from both scoring throws', function() {
 		frame1.throw1.assignScore(1);
 		frame1.throw2.assignSecondScore(2);
-		expect(frame1.throwScore()).toBe(3);
+		frame1.calculateTotalScore();
+		expect(frame1.totalScore).toBe(3);
 	});
 
 	it('throw score can be calculated when throw1 is 10', function() {
 		frame1.throw1.assignScore(10);
-		expect(frame1.throwScore()).toBe(10);
+		frame1.calculateTotalScore();
+		expect(frame1.totalScore).toBe(10);
 	});
 
 });
