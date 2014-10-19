@@ -28,7 +28,6 @@ describe ('Throw', function() {
 
 	describe('rules', function() {
 
-
 		it('throw1 can report what frame it is in', function() {
 			expect(frame1.throw1.whatFrame()).toBe(frame1)
 		});
@@ -71,6 +70,8 @@ describe ('Throw', function() {
 		});
 		
 	});
+
+
 
 });
 

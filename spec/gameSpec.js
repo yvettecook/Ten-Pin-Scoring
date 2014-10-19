@@ -25,7 +25,8 @@ describe('Game', function() {
 		game.frames[1].setTotalScore(4);
 		game.calculateGameScore();
 		expect(game.gameScore).toBe(12);
-	});
+	})
 
+	
 
 });

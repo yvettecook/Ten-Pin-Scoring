@@ -17,7 +17,7 @@ Strikes:
 
 - The player has a strike if he knocks down all 10 pins with the first roll in a frame.
 - The frame ends immediately 
-- The bonus for that frame is the number of pins knocked down by the next 2 rolls - the next frame (expect if the player rolls a strike agian.
+- The bonus for that frame is the number of pins knocked down by the next 2 rolls - the next frame (expect if the player rolls a strike again).
 
 Spares:
 

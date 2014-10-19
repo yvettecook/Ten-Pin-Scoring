@@ -17,17 +17,24 @@ Throw.prototype.whatFrame = function() {
 	return this.frame;
 };
 
+// function SecondThrow(frame) {
+// 	this.score = null;
+// 	this.frame = frame;
+// }
+
+// SecondThrow.prototype.whatFrame = function() {
+// 	return this.frame;
+// };
+
+// SecondThrow.prototype.throw1Score = function() {
+// 	return this.frame.throw1.score;
+// };
+
+SecondThrow.prototype = new Throw();
+SecondThrow.prototype.constructor=SecondThrow;
 function SecondThrow(frame) {
 	this.score = null;
 	this.frame = frame;
-}
-
-SecondThrow.prototype.whatFrame = function() {
-	return this.frame;
-};
-
-SecondThrow.prototype.throw1Score = function() {
-	return this.frame.throw1.score;
 };
 
 SecondThrow.prototype.assignSecondScore = function(pinsDown) {
