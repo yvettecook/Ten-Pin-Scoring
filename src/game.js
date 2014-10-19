@@ -1,15 +1,15 @@
 Game = function() {
 	this.frames = [
-		frame1 = new Frame,
-		frame2 = new Frame,
-		frame3 = new Frame,
-		frame4 = new Frame,
-		frame5 = new Frame,
-		frame6 = new Frame,
-		frame7 = new Frame,
-		frame8 = new Frame,
-		frame9 = new Frame,
-		frame10 = new Frame
+		frame1 = new Frame(this),
+		frame2 = new Frame(this),
+		frame3 = new Frame(this),
+		frame4 = new Frame(this),
+		frame5 = new Frame(this),
+		frame6 = new Frame(this),
+		frame7 = new Frame(this),
+		frame8 = new Frame(this),
+		frame9 = new Frame(this),
+		frame10 = new Frame(this)
 		];
 	this.frameScores = [];
 	this.gameScore = null;
@@ -20,6 +20,7 @@ Game.prototype.calculateGameScore = function() {
 	this.gameScore = this.frameScores.reduce(function(a,b) {
 		return a + b;
 	});
+	return this.gameScore;
 };
 
 Game.prototype.collateFrameScores = function(first_argument) {

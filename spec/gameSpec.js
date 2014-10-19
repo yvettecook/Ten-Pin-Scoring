@@ -23,7 +23,6 @@ describe('Game', function() {
 	it('can calculate the game score', function() {
 		game.frames[0].setTotalScore(8);
 		game.frames[1].setTotalScore(4);
-	
 		game.calculateGameScore();
 		expect(game.gameScore).toBe(12);
 	});
