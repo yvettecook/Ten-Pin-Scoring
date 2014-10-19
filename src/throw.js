@@ -33,11 +33,10 @@ Throw.prototype.whatFrame = function() {
 SecondThrow.prototype = new Throw();
 SecondThrow.prototype.constructor=SecondThrow;
 function SecondThrow(frame) {
-	this.score = null;
-	this.frame = frame;
 };
 
-SecondThrow.prototype.assignSecondScore = function(pinsDown) {
+SecondThrow.prototype.assignScore = assignSecondScore;
+function assignSecondScore(pinsDown) {
  	if (pinsDown <= 10 - this.throw1Score())
  		this.score = pinsDown;
  		return this.score;
