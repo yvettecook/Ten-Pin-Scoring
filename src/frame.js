@@ -7,13 +7,13 @@ Frame = function(game) {
 	this.totalScore = null;
 };
 
-Frame.prototype.calculateTotalScore = function() {
+Frame.prototype.calculateThrowScore = function() {
 	if (this.throw2.score === null) {
-		this.totalScore = this.throw1.score;
+		this.throwScore = this.throw1.score;
 	} else { 
-		this.totalScore = this.throw1.score + this.throw2.score;
+		this.throwScore = this.throw1.score + this.throw2.score;
 	};
-	return this.totalScore;
+	return this.throwScore;
 };
 
 Frame.prototype.whatGame = function() {
@@ -30,14 +30,22 @@ Frame.prototype.nextFrameIndex = function() {
 	return nextIndex
 };
 
-Frame.prototype.getNextFrameFirstThrow = function() {
+Frame.prototype.nextFrameFirstThrow = function() {
 	i = this.nextFrameIndex();
 	return this.game.frames[i].throw1.score;
 };
 
-Frame.prototype.getNextFrameSecondThrow = function() {
+Frame.prototype.nextFrameSecondThrow = function() {
 	i = this.nextFrameIndex();
 	return this.game.frames[i].throw2.score;
+};
+
+Frame.prototype.calculateBonusScore = function() {
+	if (this.throw1.score === 10) {
+		this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
+	} else if (this.throwScore === 10) {
+		this.bonusScore = this.nextFrameFirstThrow();
+	}
 };
 
 
