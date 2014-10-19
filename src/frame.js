@@ -21,13 +21,18 @@ Frame.prototype.whatGame = function() {
 };
 
 Frame.prototype.whatFrame = function() {
-	thisIndex = this.game.frames.indexOf(this);
+	var thisIndex = this.game.frames.indexOf(this);
 	return thisIndex;
 };
 
 Frame.prototype.nextFrameIndex = function() {
-	nextIndex = this.whatFrame() + 1;
-	return nextIndex
+	var nextIndex = this.whatFrame() + 1;
+	return nextIndex;
+};
+
+Frame.prototype.nextNextFrameIndex = function() {
+	var nextNextIndex = this.whatFrame() + 2;
+	return nextNextIndex;
 };
 
 Frame.prototype.nextFrameFirstThrow = function() {
@@ -40,9 +45,18 @@ Frame.prototype.nextFrameSecondThrow = function() {
 	return this.game.frames[i].throw2.score;
 };
 
+Frame.prototype.nextNextFrameFirstThrow = function() {
+	j = this.nextNextFrameIndex();
+	return this.game.frames[j].throw1.score;
+};
+
 Frame.prototype.calculateBonusScore = function() {
 	if (this.throw1.score === 10) {
+		if (this.nextFrameFirstThrow() !== 10) {
 		this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
+		} else {
+			this.bonusScore = this.nextFrameFirstThrow() + this.nextNextFrameFirstThrow();
+		}
 	} else if (this.throwScore === 10) {
 		this.bonusScore = this.nextFrameFirstThrow();
 	}

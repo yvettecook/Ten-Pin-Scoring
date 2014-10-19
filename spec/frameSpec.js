@@ -65,12 +65,26 @@ describe('Frame', function() {
 			expect(game.frames[0].nextFrameSecondThrow()).toBe(4);
 		});
 
+		it("can retrieve the next frame's next frame's first throw score", function() {
+			game.frames[2].throw1.assignScore(4);
+			expect(game.frames[0].nextNextFrameFirstThrow()).toBe(4);
+		});
+
 		describe('for a strike', function() {
 
-			it('bonus score is the next frame first and second throw', function() {
+			it('is the next frame first and second throw if another strike is not throw', function() {
 				game.frames[0].throw1.assignScore(10);
 				game.frames[0].calculateBonusScore();
 				expect(game.frames[0].bonusScore).toBe(5);
+			});
+
+			it('is the next 2 throws if another strike is thrown', function() {
+				game1 = new Game
+				game1.frames[0].throw1.assignScore(10);
+				game1.frames[1].throw1.assignScore(10);
+				game1.frames[2].throw1.assignScore(3);
+				game1.frames[0].calculateBonusScore();
+				expect(game1.frames[0].bonusScore).toBe(13);
 			});
 
 		});
@@ -78,9 +92,6 @@ describe('Frame', function() {
 		describe('for a spare', function() {
 
 			it('is the next frame first throw', function() {
-				game.frames[0].throw1.assignScore(8);
-				game.frames[0].throw2.assignSecondScore(2);
-				game.frames[1].throw1.assignScore(1);
 				game.frames[0].calculateThrowScore();
 				game.frames[0].calculateBonusScore();
 				expect(game.frames[0].throwScore).toBe(10);
