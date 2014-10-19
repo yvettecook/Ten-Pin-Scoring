@@ -31,10 +31,16 @@ SecondThrow.prototype.throw1Score = function() {
 };
 
 SecondThrow.prototype.assignSecondScore = function(pinsDown) {
- 	if (pinsDown <= 10 - this.throw1Score())
+ 	if (this.frame.type === 'FinalFrame') {
+ 		if (pinsDown <= 10) {
+			this.score = pinsDown;
+		} 
+ 	} else if (pinsDown <= 10 - this.throw1Score()) {
  		this.score = pinsDown;
- 		return this.score;
+ 	}; 
+ 	return this.score;
  }; 
+
 
 function ThirdThrow(frame) {
 	this.score = null;

@@ -6,10 +6,11 @@ FinalFrame = function(game) {
 	this.throwScore = null;
 	this.bonusScore = null;
 	this.totalScore = null;
+	this.type = 'FinalFrame'
 };
 
 FinalFrame.prototype.calculateThrowScore = function() {
-	if (this.throw2.score === null) {
+	if (this.throw1.score === 10) {
 		this.throwScore = this.throw1.score;
 	} else { 
 		this.throwScore = this.throw1.score + this.throw2.score;
@@ -19,11 +20,7 @@ FinalFrame.prototype.calculateThrowScore = function() {
 
 FinalFrame.prototype.calculateBonusScore = function() {
 	if (this.throw1.score === 10) {
-		if (this.nextFrameFirstThrow() !== 10) {
-		this.bonusScore = null;
-		} else {
-			this.bonusScore = null;
-		};
+		this.bonusScore = this.throw2.score + this.throw3.score ;
 	} else if (this.throwScore === 10) {
 		this.bonusScore = this.throw3.score;
 	};

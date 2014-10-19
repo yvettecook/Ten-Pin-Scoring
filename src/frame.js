@@ -51,15 +51,18 @@ Frame.prototype.nextNextFrameFirstThrow = function() {
 };
 
 Frame.prototype.calculateBonusScore = function() {
-	if (this.throw1.score === 10) {
+	if ( this.throw1.score === 10 && this.nextFrameIndex() !==9 ) {
 		if (this.nextFrameFirstThrow() !== 10) {
 		this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
 		} else {
 			this.bonusScore = this.nextFrameFirstThrow() + this.nextNextFrameFirstThrow();
 		}
+	} else if ( this.throw1.score === 10 && this.nextFrameIndex() === 9) {
+		this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow()
 	} else if (this.throwScore === 10) {
 		this.bonusScore = this.nextFrameFirstThrow();
 	}
+	return this.bonusScore;
 };
 
 Frame.prototype.calculateTotalScore = function() {

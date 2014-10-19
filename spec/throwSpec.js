@@ -60,7 +60,7 @@ describe ('Throw', function() {
 			expect(frame1.throw2.assignSecondScore(10)).toBe(null);
 		}); 
 
-		it('if throw1 is 5, then throw2 cannot by 6', function() {
+		it('if throw1 is 5, then throw2 cannot be 6', function() {
 			frame1.throw1.assignScore(5);
 			expect(frame1.throw2.assignSecondScore(6)).toBe(null);
 		});

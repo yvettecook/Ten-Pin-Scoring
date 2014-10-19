@@ -28,4 +28,33 @@ describe('Game', function() {
 	});
 
 
+	it('perfect game should score 300', function() {
+		pgame = new Game;
+		pgame.frames[0].throw1.assignScore(10);
+		pgame.frames[1].throw1.assignScore(10);
+		pgame.frames[2].throw1.assignScore(10);
+		pgame.frames[3].throw1.assignScore(10);
+		pgame.frames[4].throw1.assignScore(10);
+		pgame.frames[5].throw1.assignScore(10);
+		pgame.frames[6].throw1.assignScore(10);
+		pgame.frames[7].throw1.assignScore(10);
+		pgame.frames[8].throw1.assignScore(10);
+		pgame.frames[9].throw1.assignScore(10);
+		pgame.frames[9].throw2.assignSecondScore(10);
+		pgame.frames[9].throw3.assignThirdScore(10);
+		pgame.frames[0].calculateTotalScore();
+		pgame.frames[1].calculateTotalScore();
+		pgame.frames[2].calculateTotalScore();
+		pgame.frames[3].calculateTotalScore();
+		pgame.frames[4].calculateTotalScore();
+		pgame.frames[5].calculateTotalScore();
+		pgame.frames[6].calculateTotalScore();
+		pgame.frames[7].calculateTotalScore();
+		pgame.frames[8].calculateTotalScore();
+		pgame.frames[9].calculateTotalScore();
+		pgame.calculateGameScore();
+		expect(pgame.gameScore).toBe(300);
+	});
+
+
 });

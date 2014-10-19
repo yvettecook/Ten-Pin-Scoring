@@ -134,7 +134,7 @@ describe('Frame', function() {
 			expect(game.frames[9].bonusScore).toBe(8);
 		});
 
-		it('if a spare is scored, the bonus is calculated from the third roll', function() {
+		it('if a spare is scored, the total score is calculated', function() {
 			game.frames[9].throw1.assignScore(5);
 			game.frames[9].throw2.assignSecondScore(5);
 			game.frames[9].throw3.assignThirdScore(8);
@@ -142,6 +142,26 @@ describe('Frame', function() {
 			expect(game.frames[9].totalScore).toBe(18);
 		});
 
+		it('if a strike is scored, the bonus is calculated from the second and third rolls', function() {
+			game.frames[9].throw1.assignScore(10);
+			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw3.assignThirdScore(5);
+			game.frames[9].calculateTotalScore();
+			expect(game.frames[9].throwScore).toBe(10);
+			expect(game.frames[9].bonusScore).toBe(10);
+			expect(game.frames[9].totalScore).toBe(20);
+		});
+
+		it('if a strike is scored, the bonus is calculated from the second and third rolls', function() {
+			game.frames[9].throw1.assignScore(10);
+			game.frames[9].throw2.assignSecondScore(10);
+			game.frames[9].throw3.assignThirdScore(10);
+			game.frames[9].calculateTotalScore();
+			expect(game.frames[9].totalScore).toBe(30);
+		});
+
 	});
+
+ 
 
 });
