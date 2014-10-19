@@ -9,7 +9,7 @@ Game = function() {
 		frame7 = new Frame(this),
 		frame8 = new Frame(this),
 		frame9 = new Frame(this),
-		frame10 = new Frame(this)
+		frame10 = new FinalFrame(this)
 		];
 	this.frameScores = [];
 	this.gameScore = null;

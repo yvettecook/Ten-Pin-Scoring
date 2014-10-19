@@ -9,7 +9,7 @@ function Throw(frame) {
 
 Throw.prototype.assignScore = function(pinsDown) {
 	if (pinsDown <= 10) 
-	this.score = pinsDown;
+		this.score = pinsDown;
 	return this.score;
 };
 
@@ -36,5 +36,23 @@ SecondThrow.prototype.assignSecondScore = function(pinsDown) {
  		return this.score;
  }; 
 
+function ThirdThrow(frame) {
+	this.score = null;
+	this.frame = frame;
+}
+
+ThirdThrow.prototype.whatFrame = function() {
+	return this.frame;
+};
+
+ThirdThrow.prototype.throw1Score = function() {
+	return this.frame.throw1.score;
+};
+
+ThirdThrow.prototype.assignThirdScore = function(pinsDown) {
+ 	if (pinsDown <= 10) 
+		this.score = pinsDown;
+	return this.score;
+ };
 
 

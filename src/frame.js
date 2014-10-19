@@ -74,4 +74,3 @@ Frame.prototype.setTotalScore = function(number) {
 	this.totalScore = number;
 };
 
-

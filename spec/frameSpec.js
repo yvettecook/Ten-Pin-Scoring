@@ -114,4 +114,34 @@ describe('Frame', function() {
 
 	});
 
+	describe('final frame special rules', function() {
+
+		it('is a seperate object', function() {
+			expect(game.frames[9]).toEqual(jasmine.any(FinalFrame));
+		});
+
+		it('if 10 pins are knocked down in 2 throws then a third roll is available', function() {
+			game.frames[9].throw1.assignScore(5);
+			game.frames[9].throw2.assignSecondScore(5);
+			expect(game.frames[9].throw3).toEqual(jasmine.any(ThirdThrow));
+		});
+
+		it('if a spare is scored, the bonus is calculated from the third roll', function() {
+			game.frames[9].throw1.assignScore(5);
+			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw3.assignThirdScore(8);
+			game.frames[9].calculateTotalScore();
+			expect(game.frames[9].bonusScore).toBe(8);
+		});
+
+		it('if a spare is scored, the bonus is calculated from the third roll', function() {
+			game.frames[9].throw1.assignScore(5);
+			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw3.assignThirdScore(8);
+			game.frames[9].calculateTotalScore();
+			expect(game.frames[9].totalScore).toBe(18);
+		});
+
+	});
+
 });
