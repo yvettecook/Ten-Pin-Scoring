@@ -100,6 +100,17 @@ describe('Frame', function() {
 
 		});
 
+	});
+
+	describe('calculating total score', function() {
+
+		it('is throw score + bonus score', function() {
+			game.frames[0].throw1.assignScore(8);
+			game.frames[0].throw2.assignSecondScore(2);
+			game.frames[1].throw1.assignScore(1);
+			game.frames[0].calculateTotalScore();
+			expect(game.frames[0].totalScore).toBe(11);
+		});
 
 	});
 

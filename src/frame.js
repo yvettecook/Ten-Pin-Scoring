@@ -62,6 +62,12 @@ Frame.prototype.calculateBonusScore = function() {
 	}
 };
 
+Frame.prototype.calculateTotalScore = function() {
+	this.calculateThrowScore();
+	this.calculateBonusScore();
+	this.totalScore = this.throwScore + this.bonusScore;
+};
+
 
 //private  method for testing speed!)
 Frame.prototype.setTotalScore = function(number) {
