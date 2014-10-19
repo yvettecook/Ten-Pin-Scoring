@@ -16,6 +16,13 @@ Game = function() {
 };
 
 Game.prototype.calculateGameScore = function() {
+	this.collateFrameScores();
+	this.gameScore = this.frameScores.reduce(function(a,b) {
+		return a + b;
+	});
+};
+
+Game.prototype.collateFrameScores = function(first_argument) {
 	for (i = 0; i < this.frames.length; i++) {
 		j = this.frames[i].totalScore;
 		if (j !== null ) { 
@@ -24,10 +31,9 @@ Game.prototype.calculateGameScore = function() {
 			this.frameScores.push(0);
 		};
 	};
-	this.gameScore = this.frameScores.reduce(function(a,b) {
-		return a + b;
-	});
 };
+
+
 
 
 
