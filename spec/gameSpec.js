@@ -58,14 +58,23 @@ describe('Game', function() {
 	it('gutter game should score 0', function() {
 		ggame = new Game;
 		ggame.frames[0].throw1.assignScore(0);
+		ggame.frames[0].throw2.assignSecondScore(0);
 		ggame.frames[1].throw1.assignScore(0);
+		ggame.frames[1].throw2.assignSecondScore(0);
 		ggame.frames[2].throw1.assignScore(0);
+		ggame.frames[2].throw2.assignSecondScore(0);
 		ggame.frames[3].throw1.assignScore(0);
+		ggame.frames[3].throw2.assignSecondScore(0);
 		ggame.frames[4].throw1.assignScore(0);
+		ggame.frames[4].throw2.assignSecondScore(0);
 		ggame.frames[5].throw1.assignScore(0);
+		ggame.frames[5].throw2.assignSecondScore(0);
 		ggame.frames[6].throw1.assignScore(0);
+		ggame.frames[6].throw2.assignSecondScore(0);
 		ggame.frames[7].throw1.assignScore(0);
+		ggame.frames[7].throw2.assignSecondScore(0);
 		ggame.frames[8].throw1.assignScore(0);
+		ggame.frames[8].throw2.assignSecondScore(0);
 		ggame.frames[9].throw1.assignScore(0);
 		ggame.frames[9].throw2.assignSecondScore(0);
 		ggame.frames[0].calculateTotalScore();
@@ -80,6 +89,41 @@ describe('Game', function() {
 		ggame.frames[9].calculateTotalScore();
 		ggame.calculateGameScore();
 		expect(ggame.gameScore).toBe(0);
+	});
+
+	it('random game', function() {
+		rgame = new Game;
+		rgame.frames[0].throw1.assignScore(2);
+		rgame.frames[0].throw2.assignSecondScore(6);
+		rgame.frames[1].throw1.assignScore(3);
+		rgame.frames[1].throw2.assignSecondScore(7);
+		rgame.frames[2].throw1.assignScore(9);
+		rgame.frames[2].throw2.assignSecondScore(0);
+		rgame.frames[3].throw1.assignScore(8);
+		rgame.frames[3].throw2.assignSecondScore(2);
+		rgame.frames[4].throw1.assignScore(1);
+		rgame.frames[4].throw2.assignSecondScore(5);
+		rgame.frames[5].throw1.assignScore(3);
+		rgame.frames[5].throw2.assignSecondScore(4);
+		rgame.frames[6].throw1.assignScore(6);
+		rgame.frames[6].throw2.assignSecondScore(2);
+		rgame.frames[7].throw1.assignScore(10);
+		rgame.frames[8].throw1.assignScore(10);
+		rgame.frames[9].throw1.assignScore(6);
+		rgame.frames[9].throw2.assignSecondScore(4);
+		rgame.frames[9].throw3.assignThirdScore(10);
+		rgame.frames[0].calculateTotalScore();
+		rgame.frames[1].calculateTotalScore();
+		rgame.frames[2].calculateTotalScore();
+		rgame.frames[3].calculateTotalScore();
+		rgame.frames[4].calculateTotalScore();
+		rgame.frames[5].calculateTotalScore();
+		rgame.frames[6].calculateTotalScore();
+		rgame.frames[7].calculateTotalScore();
+		rgame.frames[8].calculateTotalScore();
+		rgame.frames[9].calculateTotalScore();
+		rgame.calculateGameScore();
+		expect(rgame.gameScore).toBe(134);
 	});
 
 });

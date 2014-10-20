@@ -8,5 +8,5 @@ Inheritance
 - [ ] Second and Third Throw models should inherit from Throw model.
 
 If/else reduction
-- [ ] Frame.prototype.calculateBonusScore (frame.js ln53) is not readable, can any of the logic be pulled out?
-- [ ] FinalFrame's calculateBonusScore and calculateThrowScore should be able to have some functionality pulled out into seperate methods.
+- [x] Frame.prototype.calculateBonusScore (frame.js ln53) is not readable, can any of the logic be pulled out?
+- [x] FinalFrame's calculateBonusScore and calculateThrowScore should be able to have some functionality pulled out into seperate methods.

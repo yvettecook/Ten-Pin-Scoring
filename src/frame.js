@@ -1,10 +1,10 @@
 Frame = function(game) {
-	this.throw1 = new Throw(this);
-	this.throw2 = new SecondThrow(this);
-	this.game = game;
-	this.throwScore = null;
-	this.bonusScore = null;
-	this.totalScore = null;
+	this.throw1 				= new Throw(this);
+	this.throw2 				= new SecondThrow(this);
+	this.game 					= game;
+	this.throwScore 		= null;
+	this.bonusScore 		= null;
+	this.totalScore 		= null;
 };
 
 Frame.prototype.calculateThrowScore = function() {
