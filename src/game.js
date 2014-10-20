@@ -1,6 +1,12 @@
 Game = function() {
+	// this.frames = [];
+	// [1,2,3,4,5,6,7,8,9].forEach(function(){
+	// 	this.frames.push(new Frame(this));
+	// });
+	// this.frames.push(new FinalFrame(this));
+
 	this.frames = [
-		frame1 	= new Frame(this),
+		new Frame(this),
 		frame2 	= new Frame(this),
 		frame3 	= new Frame(this),
 		frame4 	= new Frame(this),
