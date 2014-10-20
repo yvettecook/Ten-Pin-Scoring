@@ -50,19 +50,40 @@ Frame.prototype.nextNextFrameFirstThrow = function() {
 	return this.game.frames[j].throw1.score;
 };
 
+
 Frame.prototype.calculateBonusScore = function() {
-	if ( this.throw1.score === 10 && this.nextFrameIndex() !==9 ) {
+	if ( this.isStrike() && this.nextFrameIndex() !==9 ) {
 		if (this.nextFrameFirstThrow() !== 10) {
-			this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
+			this.strikeStandardBonus();
 		} else {
-			this.bonusScore = this.nextFrameFirstThrow() + this.nextNextFrameFirstThrow();
+			this.doubleStrikeBonus();
 		}
-	} else if ( this.throw1.score === 10 && this.nextFrameIndex() === 9) {
-			this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow()
-	} else if (this.throwScore === 10) {
-		this.bonusScore = this.nextFrameFirstThrow();
+	} else if ( this.isStrike() && this.nextFrameIndex() === 9) {
+			this.strikeStandardBonus();
+	} else if (this.isSpare()) {
+			this.spareBonus()
 	}
 	return this.bonusScore;
+};
+
+Frame.prototype.isStrike = function() {
+	return this.throw1.score === 10;
+};
+
+Frame.prototype.isSpare = function() {
+	return this.throwScore === 10;
+};
+
+Frame.prototype.strikeStandardBonus = function() {
+	this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
+};
+
+Frame.prototype.doubleStrikeBonus = function(first_argument) {
+	this.bonusScore = this.nextFrameFirstThrow() + this.nextNextFrameFirstThrow();
+};
+
+Frame.prototype.spareBonus = function() {
+	this.bonusScore = this.nextFrameFirstThrow();
 };
 
 Frame.prototype.calculateTotalScore = function() {
