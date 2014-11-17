@@ -168,6 +168,6 @@ describe('Frame', function() {
 
 	});
 
- 
+
 
 });

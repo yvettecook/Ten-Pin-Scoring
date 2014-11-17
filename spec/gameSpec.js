@@ -57,35 +57,13 @@ describe('Game', function() {
 
 	it('gutter game should score 0', function() {
 		ggame = new Game;
-		ggame.frames[0].throw1.assignScore(0);
-		ggame.frames[0].throw2.assignSecondScore(0);
-		ggame.frames[1].throw1.assignScore(0);
-		ggame.frames[1].throw2.assignSecondScore(0);
-		ggame.frames[2].throw1.assignScore(0);
-		ggame.frames[2].throw2.assignSecondScore(0);
-		ggame.frames[3].throw1.assignScore(0);
-		ggame.frames[3].throw2.assignSecondScore(0);
-		ggame.frames[4].throw1.assignScore(0);
-		ggame.frames[4].throw2.assignSecondScore(0);
-		ggame.frames[5].throw1.assignScore(0);
-		ggame.frames[5].throw2.assignSecondScore(0);
-		ggame.frames[6].throw1.assignScore(0);
-		ggame.frames[6].throw2.assignSecondScore(0);
-		ggame.frames[7].throw1.assignScore(0);
-		ggame.frames[7].throw2.assignSecondScore(0);
-		ggame.frames[8].throw1.assignScore(0);
-		ggame.frames[8].throw2.assignSecondScore(0);
+		for (i = 0; i < 9; i++) {
+			ggame.frames[i].throw1.assignScore(0);
+			ggame.frames[i].throw2.assignSecondScore(0);
+			ggame.frames[i].calculateTotalScore();
+		}
 		ggame.frames[9].throw1.assignScore(0);
 		ggame.frames[9].throw2.assignSecondScore(0);
-		ggame.frames[0].calculateTotalScore();
-		ggame.frames[1].calculateTotalScore();
-		ggame.frames[2].calculateTotalScore();
-		ggame.frames[3].calculateTotalScore();
-		ggame.frames[4].calculateTotalScore();
-		ggame.frames[5].calculateTotalScore();
-		ggame.frames[6].calculateTotalScore();
-		ggame.frames[7].calculateTotalScore();
-		ggame.frames[8].calculateTotalScore();
 		ggame.frames[9].calculateTotalScore();
 		ggame.calculateGameScore();
 		expect(ggame.gameScore).toBe(0);
