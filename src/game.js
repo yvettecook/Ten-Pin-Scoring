@@ -30,17 +30,13 @@ Game.prototype.calculateGameScore = function() {
 };
 
 Game.prototype.collateFrameScores = function(first_argument) {
+	var j
 	for (i = 0; i < this.frames.length; i++) {
 		j = this.frames[i].totalScore;
-		if (j !== null ) { 
-			this.frameScores.push(j) 
-		} else { 
+		if (j !== null ) {
+			this.frameScores.push(j)
+		} else {
 			this.frameScores.push(0);
 		};
 	};
 };
-
-
-
-
-
