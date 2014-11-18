@@ -29,7 +29,7 @@ describe('Frame', function() {
 
 		it('throw score can be calculated from both scoring throws', function() {
 			frame1.throw1.assignScore(1);
-			frame1.throw2.assignSecondScore(2);
+			frame1.throw2.assignScore(2);
 			frame1.calculateThrowScore();
 			expect(frame1.throwScore).toBe(3);
 		});
@@ -46,9 +46,9 @@ describe('Frame', function() {
 
 		beforeEach(function() {
 			game.frames[0].throw1.assignScore(8);
-			game.frames[0].throw2.assignSecondScore(2);
+			game.frames[0].throw2.assignScore(2);
 			game.frames[1].throw1.assignScore(1);
-			game.frames[1].throw2.assignSecondScore(4);
+			game.frames[1].throw2.assignScore(4);
 		});
 
 		it('can return the game it is a part of', function() {
@@ -112,7 +112,7 @@ describe('Frame', function() {
 
 		it('is throw score + bonus score', function() {
 			game.frames[0].throw1.assignScore(8);
-			game.frames[0].throw2.assignSecondScore(2);
+			game.frames[0].throw2.assignScore(2);
 			game.frames[1].throw1.assignScore(1);
 			game.frames[0].calculateTotalScore();
 			expect(game.frames[0].totalScore).toBe(11);
@@ -128,13 +128,13 @@ describe('Frame', function() {
 
 		it('if 10 pins are knocked down in 2 throws then a third roll is available', function() {
 			game.frames[9].throw1.assignScore(5);
-			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw2.assignScore(5);
 			expect(game.frames[9].throw3).toEqual(jasmine.any(ThirdThrow));
 		});
 
 		it('if a spare is scored, the bonus is calculated from the third roll', function() {
 			game.frames[9].throw1.assignScore(5);
-			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw2.assignScore(5);
 			game.frames[9].throw3.assignThirdScore(8);
 			game.frames[9].calculateTotalScore();
 			expect(game.frames[9].bonusScore).toBe(8);
@@ -142,7 +142,7 @@ describe('Frame', function() {
 
 		it('if a spare is scored, the total score is calculated', function() {
 			game.frames[9].throw1.assignScore(5);
-			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw2.assignScore(5);
 			game.frames[9].throw3.assignThirdScore(8);
 			game.frames[9].calculateTotalScore();
 			expect(game.frames[9].totalScore).toBe(18);
@@ -150,7 +150,7 @@ describe('Frame', function() {
 
 		it('if a strike is scored, the bonus is calculated from the second and third rolls', function() {
 			game.frames[9].throw1.assignScore(10);
-			game.frames[9].throw2.assignSecondScore(5);
+			game.frames[9].throw2.assignScore(5);
 			game.frames[9].throw3.assignThirdScore(5);
 			game.frames[9].calculateTotalScore();
 			expect(game.frames[9].throwScore).toBe(10);
@@ -160,7 +160,7 @@ describe('Frame', function() {
 
 		it('if a strike is scored, the bonus is calculated from the second and third rolls', function() {
 			game.frames[9].throw1.assignScore(10);
-			game.frames[9].throw2.assignSecondScore(10);
+			game.frames[9].throw2.assignScore(10);
 			game.frames[9].throw3.assignThirdScore(10);
 			game.frames[9].calculateTotalScore();
 			expect(game.frames[9].totalScore).toBe(30);

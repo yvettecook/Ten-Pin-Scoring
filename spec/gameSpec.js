@@ -34,7 +34,7 @@ describe('Game', function() {
 			pgame.frames[i].throw1.assignScore(10);
 		}
 
-		pgame.frames[9].throw2.assignSecondScore(10);
+		pgame.frames[9].throw2.assignScore(10);
 		pgame.frames[9].throw3.assignThirdScore(10);
 
 		calculateEachFrameScore(pgame);
@@ -47,11 +47,11 @@ describe('Game', function() {
 		ggame = new Game;
 		for (i = 0; i < 9; i++) {
 			ggame.frames[i].throw1.assignScore(0);
-			ggame.frames[i].throw2.assignSecondScore(0);
+			ggame.frames[i].throw2.assignScore(0);
 			ggame.frames[i].calculateTotalScore();
 		}
 		ggame.frames[9].throw1.assignScore(0);
-		ggame.frames[9].throw2.assignSecondScore(0);
+		ggame.frames[9].throw2.assignScore(0);
 		ggame.frames[9].calculateTotalScore();
 		ggame.calculateGameScore();
 
@@ -61,23 +61,23 @@ describe('Game', function() {
 	it('random game', function() {
 		rgame = new Game;
 		rgame.frames[0].throw1.assignScore(2);
-		rgame.frames[0].throw2.assignSecondScore(6);
+		rgame.frames[0].throw2.assignScore(6);
 		rgame.frames[1].throw1.assignScore(3);
-		rgame.frames[1].throw2.assignSecondScore(7);
+		rgame.frames[1].throw2.assignScore(7);
 		rgame.frames[2].throw1.assignScore(9);
-		rgame.frames[2].throw2.assignSecondScore(0);
+		rgame.frames[2].throw2.assignScore(0);
 		rgame.frames[3].throw1.assignScore(8);
-		rgame.frames[3].throw2.assignSecondScore(2);
+		rgame.frames[3].throw2.assignScore(2);
 		rgame.frames[4].throw1.assignScore(1);
-		rgame.frames[4].throw2.assignSecondScore(5);
+		rgame.frames[4].throw2.assignScore(5);
 		rgame.frames[5].throw1.assignScore(3);
-		rgame.frames[5].throw2.assignSecondScore(4);
+		rgame.frames[5].throw2.assignScore(4);
 		rgame.frames[6].throw1.assignScore(6);
-		rgame.frames[6].throw2.assignSecondScore(2);
+		rgame.frames[6].throw2.assignScore(2);
 		rgame.frames[7].throw1.assignScore(10);
 		rgame.frames[8].throw1.assignScore(10);
 		rgame.frames[9].throw1.assignScore(6);
-		rgame.frames[9].throw2.assignSecondScore(4);
+		rgame.frames[9].throw2.assignScore(4);
 		rgame.frames[9].throw3.assignThirdScore(10);
 
 		calculateEachFrameScore(rgame);
@@ -91,6 +91,6 @@ describe('Game', function() {
 			gameName.frames[h].calculateTotalScore();
 		}
 	};
-	
+
 
 });

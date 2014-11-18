@@ -1,4 +1,3 @@
-//I know this is ugly, but its working
 //Refactoring: the issue was that if SecondThrow was a prototype of Throw, the frame reference wasn't getting passed down. this.frame returned undefined
 //Refactoring - can also pull out methods to ensure single responsibility
 var whatFrame = function() {
@@ -11,7 +10,7 @@ function Throw(frame) {
 }
 
 Throw.prototype.assignScore = function(pinsDown) {
-	if (pinsDown <= 10) 
+	if (pinsDown <= 10)
 		this.score = pinsDown;
 	return this.score;
 };
@@ -29,16 +28,20 @@ SecondThrow.prototype.throw1Score = function() {
 	return this.frame.throw1.score;
 };
 
-SecondThrow.prototype.assignSecondScore = function(pinsDown) {
- 	if (this.frame.type === 'FinalFrame') {
+SecondThrow.prototype.assignScore = function(pinsDown) {
+ 	if (this.isFinalFrame()) {
  		if (pinsDown <= 10) {
 			this.score = pinsDown;
-		} 
+		}
  	} else if (pinsDown <= 10 - this.throw1Score()) {
  		this.score = pinsDown;
- 	}; 
+ 	};
  	return this.score;
- }; 
+ };
+
+SecondThrow.prototype.isFinalFrame = function () {
+	return this.frame.type === 'FinalFrame'
+};
 
 
 function ThirdThrow(frame) {
@@ -54,9 +57,6 @@ ThirdThrow.prototype.throw1Score = function() {
 };
 
 ThirdThrow.prototype.assignThirdScore = function(pinsDown) {
- 	if (pinsDown <= 10) 
-		this.score = pinsDown;
+ 	if (pinsDown <= 10) { this.score = pinsDown };
 	return this.score;
- };
-
-
+};
