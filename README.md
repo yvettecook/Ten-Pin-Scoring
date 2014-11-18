@@ -5,7 +5,7 @@ In javascript, count and sum the scores of a bowling game of one player
 
 ###Spec
 
-A bowling game consists of 10 frames in which the player tries to knock down the 10 pins. 
+A bowling game consists of 10 frames in which the player tries to knock down the 10 pins.
 
 Frames:
 
@@ -16,7 +16,7 @@ Frames:
 Strikes:
 
 - The player has a strike if he knocks down all 10 pins with the first roll in a frame.
-- The frame ends immediately 
+- The frame ends immediately
 - The bonus for that frame is the number of pins knocked down by the next 2 rolls - the next frame (expect if the player rolls a strike agian.
 
 Spares:
@@ -46,10 +46,6 @@ Sepcial games:
 ###Personal Goals:
 
 - TDD, fully test everything.
-- Refactoring for clean code. 
+- Refactoring for clean code.
 	- In particular, applying single responsibility principles.
 - Mindful programming: No randomly hacking at problems, but conciously considoring why soemthing is failing, and what the expect consequence of an action will be.
-
-
-
-

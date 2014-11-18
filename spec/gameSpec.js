@@ -37,11 +37,7 @@ describe('Game', function() {
 		pgame.frames[9].throw2.assignSecondScore(10);
 		pgame.frames[9].throw3.assignThirdScore(10);
 
-		for (h = 0; h < 10; h++) {
-			pgame.frames[h].calculateTotalScore();
-		}
-
-		console.log(pgame.frames)
+		calculateEachFrameScore(pgame);
 
 		pgame.calculateGameScore();
 		expect(pgame.gameScore).toBe(300);
@@ -58,6 +54,7 @@ describe('Game', function() {
 		ggame.frames[9].throw2.assignSecondScore(0);
 		ggame.frames[9].calculateTotalScore();
 		ggame.calculateGameScore();
+
 		expect(ggame.gameScore).toBe(0);
 	});
 
@@ -82,18 +79,18 @@ describe('Game', function() {
 		rgame.frames[9].throw1.assignScore(6);
 		rgame.frames[9].throw2.assignSecondScore(4);
 		rgame.frames[9].throw3.assignThirdScore(10);
-		rgame.frames[0].calculateTotalScore();
-		rgame.frames[1].calculateTotalScore();
-		rgame.frames[2].calculateTotalScore();
-		rgame.frames[3].calculateTotalScore();
-		rgame.frames[4].calculateTotalScore();
-		rgame.frames[5].calculateTotalScore();
-		rgame.frames[6].calculateTotalScore();
-		rgame.frames[7].calculateTotalScore();
-		rgame.frames[8].calculateTotalScore();
-		rgame.frames[9].calculateTotalScore();
+
+		calculateEachFrameScore(rgame);
+
 		rgame.calculateGameScore();
 		expect(rgame.gameScore).toBe(134);
 	});
+
+	var calculateEachFrameScore = function(gameName) {
+		for (h = 0; h < 10; h++) {
+			gameName.frames[h].calculateTotalScore();
+		}
+	};
+	
 
 });
