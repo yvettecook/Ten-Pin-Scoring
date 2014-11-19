@@ -1,5 +1,3 @@
-
-//private  method for testing speed!)
 Frame.prototype.setTotalScore = function(number) {
 	this.totalScore = number;
 };

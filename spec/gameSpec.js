@@ -45,16 +45,12 @@ describe('Game', function() {
 
 	it('gutter game should score 0', function() {
 		ggame = new Game;
-		for (i = 0; i < 9; i++) {
+		for (i = 0; i < 10; i++) {
 			ggame.frames[i].throw1.assignScore(0);
 			ggame.frames[i].throw2.assignScore(0);
 			ggame.frames[i].calculateTotalScore();
 		}
-		ggame.frames[9].throw1.assignScore(0);
-		ggame.frames[9].throw2.assignScore(0);
-		ggame.frames[9].calculateTotalScore();
 		ggame.calculateGameScore();
-
 		expect(ggame.gameScore).toBe(0);
 	});
 
@@ -79,9 +75,7 @@ describe('Game', function() {
 		rgame.frames[9].throw1.assignScore(6);
 		rgame.frames[9].throw2.assignScore(4);
 		rgame.frames[9].throw3.assignThirdScore(10);
-
-		calculateEachFrameScore(rgame);
-
+		calculateEachFrameScore(rgame)
 		rgame.calculateGameScore();
 		expect(rgame.gameScore).toBe(134);
 	});
