@@ -1,9 +1,9 @@
-##Ten Pin Scoring
-###Maker's Academy: Week 5 Challenge
+## Ten Pin Scoring
+### Maker's Academy: Week 5 Challenge
 
 In javascript, count and sum the scores of a bowling game of one player
 
-###Spec
+### Spec
 
 A bowling game consists of 10 frames in which the player tries to knock down the 10 pins.
 
@@ -31,7 +31,7 @@ Spares:
 - Example 1: 10, 10, 10 in the 10th frame gives 30 points (10 points for the regular strike, and 20 points for the bonus
 - Example 2: 1, 9, 10 in the 10th frame gives 20 points (10 points for the regular spare and 10 points for the bonus)
 
-Sepcial games:
+Special games:
 
 - A gutter game is when the player never hits a pin (20 zero scores)
 - A perfect game is when the player rolls 12 strikes - scoring 300 points.
@@ -49,3 +49,59 @@ Sepcial games:
 - Refactoring for clean code.
 	- In particular, applying single responsibility principles.
 - Mindful programming: No randomly hacking at problems, but conciously considoring why soemthing is failing, and what the expect consequence of an action will be.
+
+
+### Code Snippets
+
+```javascript
+Game.prototype.calculateGameScore = function() {
+	this.collateFrameScores();
+	this.gameScore = this.frameScores.reduce(function(a,b) {
+		return a + b;
+	});
+	return this.gameScore;
+};
+```
+
+
+Refactoring:
+
+**Before**:
+
+```javascript
+Frame.prototype.calculateBonusScore = function() {
+	if ( this.isStrike() && this.nextFrameIndex() !==9 ) {
+		if (this.nextFrameFirstThrow() !== 10) {
+			this.strikeStandardBonus();
+		} else {
+			this.doubleStrikeBonus();
+		}
+	} else if ( this.isStrike() && this.nextFrameIndex() === 9) {
+			this.strikeStandardBonus();
+	} else if (this.isSpare()) {
+			this.spareBonus()
+		}
+	return this.bonusScore;
+};
+```
+
+**After**:
+
+```javascript
+Frame.prototype.calculateBonusScore = function() {
+	if ( this.isStrike() ) {
+		this.strikeBonusCalc();
+		} else if (this.isSpare() ){
+			this.spareBonus();	}
+			return this.bonusScore;
+		};
+
+
+Frame.prototype.strikeBonusCalc = function() {
+	if ( this.isNextFrameStrike() && this.whatFrame() !== 8 ) {
+		this.doubleStrikeBonus();
+		} else {
+			this.strikeStandardBonus();
+		}
+	};
+```
