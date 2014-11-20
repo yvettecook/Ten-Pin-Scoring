@@ -16,12 +16,12 @@ Frame.prototype.calculateThrowScore = function() {
 	return this.throwScore;
 };
 
+
 Frame.prototype.calculateBonusScore = function() {
 	if ( this.isStrike() ) {
 		this.strikeBonusCalc();
-	} else {
-		this.spareBonus();
-	}
+	} else if (this.isSpare() ){
+		this.spareBonus();	}
 	return this.bonusScore;
 };
 
