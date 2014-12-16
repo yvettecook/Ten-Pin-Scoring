@@ -84,22 +84,22 @@ Frame.prototype.isSpare = function() {
 };
 
 Frame.prototype.isStrikeOnEightFrame = function() {
-	return this.isStrike() && this.nextFrameIndex() === 9
+	return this.isStrike() && this.nextFrameIndex() === 9;
 };
 
 Frame.prototype.isNextFrameStrike = function() {
-	return this.nextFrameFirstThrow() === 10
-}
+	return this.nextFrameFirstThrow() === 10;
+};
 
 Frame.prototype.isStrikeNotOnEigthFrame = function() {
 	return this.isStrike() && this.nextFrameIndex() !==9
-}
+};
 
 Frame.prototype.strikeStandardBonus = function() {
 	this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
 };
 
-Frame.prototype.doubleStrikeBonus = function(first_argument) {
+Frame.prototype.doubleStrikeBonus = function() {
 	this.bonusScore = this.nextFrameFirstThrow() + this.nextNextFrameFirstThrow();
 };
 
