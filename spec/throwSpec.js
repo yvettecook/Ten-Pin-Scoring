@@ -20,7 +20,7 @@ describe ('Throw', function() {
 		it('can not be 11', function() {
 			expect(throw1.assignScore(11)).toBe(null);
 		});
-	
+
 		it('can report its score', function() {
 			throw1.assignScore(8)
 			expect(throw1.score).toBe(8);
@@ -45,31 +45,31 @@ describe ('Throw', function() {
 
 		it('if throw1 is 0, throw2 can be 10', function() {
 			frame1.throw1.assignScore(0);
-			frame1.throw2.assignSecondScore(10);
+			frame1.throw2.assignScore(10);
 			expect(frame1.throw2.score).toBe(10)
-		}); 
+		});
 
 		it('if throw1 is 1, throw2 can be 9', function() {
 			frame1.throw1.assignScore(1);
-			frame1.throw2.assignSecondScore(9)
+			frame1.throw2.assignScore(9)
 			expect(frame1.throw2.score).toBe(9);
-		}); 
+		});
 
 		it('if throw1 is 1, throw2 cannot be 10', function() {
 			frame1.throw1.assignScore(1);
-			expect(frame1.throw2.assignSecondScore(10)).toBe(null);
-		}); 
+			expect(frame1.throw2.assignScore(10)).toBe(null);
+		});
 
 		it('if throw1 is 5, then throw2 cannot be 6', function() {
 			frame1.throw1.assignScore(5);
-			expect(frame1.throw2.assignSecondScore(6)).toBe(null);
+			expect(frame1.throw2.assignScore(6)).toBe(null);
 		});
-		
+
 		it('if throw1 is 10, then throw2 is null', function() {
 			frame1.throw1.assignScore(10);
 			expect(frame1.throw2.score).toBe(null);
 		});
-		
+
 	});
 
 });

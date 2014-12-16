@@ -10,11 +10,36 @@ Frame = function(game) {
 Frame.prototype.calculateThrowScore = function() {
 	if (this.throw2.score === null) {
 		this.throwScore = this.throw1.score;
-	} else { 
+	} else {
 		this.throwScore = this.throw1.score + this.throw2.score;
 	};
 	return this.throwScore;
 };
+
+
+Frame.prototype.calculateBonusScore = function() {
+	if ( this.isStrike() ) {
+		this.strikeBonusCalc();
+	} else if (this.isSpare() ){
+		this.spareBonus();	}
+	return this.bonusScore;
+};
+
+
+Frame.prototype.strikeBonusCalc = function() {
+	if ( this.isNextFrameStrike() && this.whatFrame() !== 8 ) {
+		this.doubleStrikeBonus();
+	} else {
+		this.strikeStandardBonus();
+	}
+};
+
+Frame.prototype.calculateTotalScore = function() {
+	this.calculateThrowScore();
+	this.calculateBonusScore();
+	this.totalScore = this.throwScore + this.bonusScore;
+};
+
 
 Frame.prototype.whatGame = function() {
 	return this.game;
@@ -50,22 +75,6 @@ Frame.prototype.nextNextFrameFirstThrow = function() {
 	return this.game.frames[j].throw1.score;
 };
 
-
-Frame.prototype.calculateBonusScore = function() {
-	if ( this.isStrike() && this.nextFrameIndex() !==9 ) {
-		if (this.nextFrameFirstThrow() !== 10) {
-			this.strikeStandardBonus();
-		} else {
-			this.doubleStrikeBonus();
-		}
-	} else if ( this.isStrike() && this.nextFrameIndex() === 9) {
-			this.strikeStandardBonus();
-	} else if (this.isSpare()) {
-			this.spareBonus()
-	}
-	return this.bonusScore;
-};
-
 Frame.prototype.isStrike = function() {
 	return this.throw1.score === 10;
 };
@@ -73,6 +82,18 @@ Frame.prototype.isStrike = function() {
 Frame.prototype.isSpare = function() {
 	return this.throwScore === 10;
 };
+
+Frame.prototype.isStrikeOnEightFrame = function() {
+	return this.isStrike() && this.nextFrameIndex() === 9
+};
+
+Frame.prototype.isNextFrameStrike = function() {
+	return this.nextFrameFirstThrow() === 10
+}
+
+Frame.prototype.isStrikeNotOnEigthFrame = function() {
+	return this.isStrike() && this.nextFrameIndex() !==9
+}
 
 Frame.prototype.strikeStandardBonus = function() {
 	this.bonusScore = this.nextFrameFirstThrow() + this.nextFrameSecondThrow();
@@ -85,11 +106,3 @@ Frame.prototype.doubleStrikeBonus = function(first_argument) {
 Frame.prototype.spareBonus = function() {
 	this.bonusScore = this.nextFrameFirstThrow();
 };
-
-Frame.prototype.calculateTotalScore = function() {
-	this.calculateThrowScore();
-	this.calculateBonusScore();
-	this.totalScore = this.throwScore + this.bonusScore;
-};
-
-
