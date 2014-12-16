@@ -6,15 +6,15 @@ FinalFrame = function(game) {
 	this.throwScore 		= null;
 	this.bonusScore 		= null;
 	this.totalScore 		= null;
-	this.type = 'FinalFrame'
+	this.type = 'FinalFrame';
 };
 
 FinalFrame.prototype._calculateThrowScore = function() {
 	if (this.isStrike()) {
 		this.throwScore = this.throw1.score;
-	} else { 
+	} else {
 		this.throwScore = this.throw1.score + this.throw2.score;
-	};
+	}
 	return this.throwScore;
 };
 
@@ -23,7 +23,7 @@ FinalFrame.prototype._calculateBonusScore = function() {
 		this.bonusScore = this.throw2.score + this.throw3.score ;
 	} else if (this.isSpare()) {
 		this.bonusScore = this.throw3.score;
-	};
+	}
 	return this.bonusScore;
 };
 

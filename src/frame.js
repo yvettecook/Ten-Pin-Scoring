@@ -12,7 +12,7 @@ Frame.prototype.calculateThrowScore = function() {
 		this.throwScore = this.throw1.score;
 	} else {
 		this.throwScore = this.throw1.score + this.throw2.score;
-	};
+	}
 	return this.throwScore;
 };
 
